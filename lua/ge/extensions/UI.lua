@@ -36,7 +36,7 @@ end
 
 local function message(mess)
 	println("[Message] > "..mess)
-	ui_message(''..mess, 10, 0, 0)
+	ui_message(mess, 10, 0, 0) -- you are doing something wrong if it's not string already
 end
 
 local function console(message)

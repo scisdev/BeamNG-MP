@@ -126,7 +126,6 @@ local function onUpdate(dt)
 	averageUpdateTime = sum / elements
 	averageUpdateTime = averageUpdateTime + 0.5 - (averageUpdateTime + 0.5) % 1 -- Round
 	Debug.updateUI("updateTime", averageUpdateTime)
-
 	-- Client Code
 	if connectionStatus > 0 then -- If player is connecting or connected
 		local received, status, partial = TCPSocket:receive() -- Receive data
@@ -198,9 +197,6 @@ local function onUpdate(dt)
 					shouldSendState = true
 				end
 
-			elseif code == "UIMS" then
-				ui_message(data, 5, "")
-
 			elseif code == "ADMN" then
 				ui_message("Congratz, you are now admin. Have fun!", 5, "")
 				isAdmin = true
@@ -252,7 +248,6 @@ local function onUpdate(dt)
 	end
 	if connectionStatus > 1 then
 		--================================ CHECK PING ================================
-
 		pingTimer = pingTimer + dt
 		if pingTimer > 2 and pingStatus == "ready" then -- Ping every 2 seconds
 			pingStatus = "send" -- Set status to send
